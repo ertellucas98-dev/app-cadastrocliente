@@ -1,0 +1,46 @@
+<h2  mat-dialog-title >{{!ischange ? 'Criar Cliente' : 'Editar cliente'}}</h2>
+
+
+<div class="CriarediatarCliente">
+<mat-dialog-content>
+   <mat-form-field>
+    <mat-label>Nome</mat-label>
+    <input matInput [(ngModel)]="data.nome" />
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-content>
+   <mat-form-field>
+    <mat-label>CPF</mat-label>
+    <input matInput [(ngModel)]="data.cpf" />
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-content>
+   <mat-form-field>
+    <mat-label>Telefone</mat-label>
+    <input matInput [(ngModel)]="data.telefone" />
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-content>
+   <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input matInput [(ngModel)]="data.email" />
+  </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button matButton (click)="onNoClick()">No Thanks</button>
+  <button matButton [mat-dialog-close]="data" cdkFocusInitial>{{!ischange ? 'Criar ' : 'Editar'}}</button>
+
+</mat-dialog-actions>
+</div>
+
+
+<!-- 
+a) Data do empréstimo
+b) Moeda (de preferência utilizar a lista do Banco Central)
+c) Valor obtido
+d) Taxa de conversão para reais em data atual (de preferência obtida no Banco Central)
+e) Data de vencimento 
+-->
+
+

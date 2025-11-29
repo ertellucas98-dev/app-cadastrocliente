@@ -1,0 +1,68 @@
+<!-- 
+NOME
+CPF
+EMAIL 
+TELEFONE 
+-->
+
+
+<div class="table-container">
+
+
+    <button mat-button (click)="openDialog(null)" color="primary">Adicionar</button>
+   
+    <button mat-button color="primary">Listar Empréstimos</button>
+<table mat-table #table [dataSource]="dataSource"  class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+ <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>ID</th>
+    <td mat-cell *matCellDef="let element">{{element.id}}</td>
+  </ng-container>
+  <!-- Position Column -->
+  <ng-container matColumnDef="nome">
+    <th mat-header-cell *matHeaderCellDef> NOME </th>
+    <td mat-cell *matCellDef="let element"> {{element.nome}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="cpf">
+    <th mat-header-cell *matHeaderCellDef> CPF </th>
+    <td mat-cell *matCellDef="let element"> {{element.cpf}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef> EMAIL </th>
+    <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="telefone">
+    <th mat-header-cell *matHeaderCellDef> TELEFONE </th>
+    <td mat-cell *matCellDef="let element"> {{element.telefone}} </td>
+  </ng-container>
+
+   <ng-container matColumnDef="ações">
+    <th mat-header-cell *matHeaderCellDef> AÇÕES </th>
+    <td mat-cell *matCellDef="let element"> {{element.acoes}} 
+      <div class="container-botoes">
+        <button matFab (click)="editElement(element)">
+            <mat-icon>edit</mat-icon>
+        </button>
+        <button matFab  (click)="deleteElement(element.id)">
+            <mat-icon>delete</mat-icon>
+        </button>
+         <button  matFab (click)="openDialogEmprestimo(element)" color="primary">
+          <mat-icon>money</mat-icon>
+        </button>
+       </div>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+</div>
+

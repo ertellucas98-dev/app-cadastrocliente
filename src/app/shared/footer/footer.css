@@ -1,0 +1,11 @@
+.container{
+    background-color: rgba(0, 0, 255, 0.286);
+    display: flex;
+    flex-direction: row-reverse;
+   
+}
+
+.container .txt{
+    padding: 20px 50px;
+    color: white;
+}

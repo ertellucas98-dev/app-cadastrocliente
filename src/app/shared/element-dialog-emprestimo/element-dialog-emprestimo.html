@@ -1,0 +1,56 @@
+<div class="CriarEmprestimos">
+    <mat-dialog-content >
+
+    <mat-chip-set aria-label="Dog selection" class="perfil-container">
+  <mat-chip class="perfil">
+    <mat-icon>person</mat-icon>
+    {{data.nome}} <br>
+    {{data.cpf}} <br>
+    </mat-chip>
+        </mat-chip-set>
+</mat-dialog-content>
+      
+
+    <mat-dialog-content>
+
+        <input matInput placeholder="Data do Empréstimo" type="date">
+    </mat-dialog-content>
+   
+        <!-- <mat-label>Moeda</mat-label>
+        <mat-form-field>
+            <mat-select>
+                @for (moeda of moedas; track moeda) {
+                <mat-option [value]="moeda.simbolo">{{moeda.simbolo}}</mat-option>
+                }
+            </mat-select>
+    </mat-form-field> -->
+    <mat-dialog-content>
+     <select (change)="exibirTaxaDeCotacao()">
+         @for (moeda of moedas; track $index) {
+                <option value="{{moeda.simbolo}}">{{moeda.simbolo}} - {{moeda.nomeFormatado}}</option>
+                }
+        <!-- Adicione mais opções conforme necessário -->
+      </select>
+        
+    </mat-dialog-content>
+
+    <mat-dialog-content>
+        <input matInput placeholder="Taxa de Cotação" type="number" 
+        value="{{taxaDeCotacao.toFixed(5)}}" readonly
+        >
+    </mat-dialog-content>
+      
+    <mat-dialog-content>
+        <input value="{{ this.taxaDeCotacaoData[0]?.cotacaoVenda }}" matInput placeholder="Taxa de Conversão para Reais">
+    </mat-dialog-content>
+
+    <mat-dialog-content>
+        <input matInput placeholder="Data de Vencimento" type="date">   
+    </mat-dialog-content>
+
+    <mat-dialog-actions>
+      <button matButton (click)="onNoClick()">Cancelar</button>
+      <button matButton [mat-dialog-close]="data" cdkFocusInitial>{{!ischange ? 'Criar ' : 'Editar'}}</button>
+  
+    </mat-dialog-actions>
+</div>

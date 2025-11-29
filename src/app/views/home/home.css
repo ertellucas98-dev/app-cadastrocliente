@@ -1,0 +1,16 @@
+
+.table-container{
+    padding: 50px 80px;
+}
+
+
+.table{
+    width: 100%;
+}
+
+.container-botoes {
+  display: flex;
+  gap: 10px;
+
+
+}
